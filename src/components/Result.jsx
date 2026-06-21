@@ -23,26 +23,21 @@ const Result = (props) => {
   const callback = (lang) => {
     setCaption(lang);
   }
-const fetchCaption = async () => {
-    const formData = new FormData();
-    formData.append('file', props.img);
-
+  const fetchCaption = async () => {
     try {
-        // Simulating AI caption generation
-        await new Promise(resolve => setTimeout(resolve, 2000));
-        
-        const mockCaptions = [
-            "a dog sitting on a bench in the park",
-            "a group of people standing in front of a building",
-            "a cat sleeping on a cozy couch",
-            "a beautiful sunset over the ocean",
-            "a person riding a bicycle on a city street"
-        ];
-        
-        const randomCaption = mockCaptions[Math.floor(Math.random() * mockCaptions.length)];
-        setCaption(randomCaption);
-        setCap(randomCaption);
-        
+        const response = await fetch(
+            "https://api-inference.huggingface.co/models/Salesforce/blip-image-captioning-base",
+            {
+                method: "POST",
+                headers: {
+                    Authorization: `Bearer ${process.env.REACT_APP_HF_TOKEN}`,
+                },
+                body: props.img,
+            }
+        );
+        const data = await response.json();
+        setCaption(data[0]?.generated_text || "Could not generate caption");
+        setCap(data[0]?.generated_text || "Could not generate caption");
     } catch (err) {
         console.log(err);
     }

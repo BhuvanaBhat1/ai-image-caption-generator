@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,3 +69,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+=======
+# ai-image-caption-generator-
+Upload any image and get an AI-generated caption instantly — built with React frontend, Node.js backend, MongoDB Atlas, and Hugging Face's BLIP (Bootstrapping Language-Image Pre-training) captioning model. Includes user auth, text-to-speech and caption translation.
+>>>>>>> 6dc63258e0ca884483718a080bb2e28684536851
